@@ -32,9 +32,6 @@ class YahooWeather
 	/** Array with forecast weather **/
 	private $forecast = array();
 	
-	private $title;
-	private $description;
-	
 	/** If the city is found **/
 	public $is_found = TRUE;
 	
@@ -158,6 +155,38 @@ class YahooWeather
 	public function getForecast()
 	{
 		return $this->forecast;
+	}
+	
+	/**
+	 * Get the wind weather
+	 */
+	public function getWind()
+	{
+		return $this->wind;
+	}
+	
+	/**
+	 * Get the atmosphere weather
+	 */
+	public function getAtmosphere()
+	{
+		return $this->atmosphere;
+	}
+	
+	/**
+	 * Get the astronomy weather
+	 */
+	public function getAstronomy()
+	{
+		return $this->astronomy;
+	}
+	
+	/**
+	 * Get the geo-location weather
+	 */
+	public function getGeoLocation()
+	{
+		return $this->geo_location;
 	}
 	
 	/**
