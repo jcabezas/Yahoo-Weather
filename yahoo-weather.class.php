@@ -7,6 +7,9 @@ class YahooWeather
 	
 	/** City name **/
 	private $city = '';
+	
+	/** Unit temp **/
+	private $unit = '';
 
 	/** Array with units weather **/
 	private $units = array();
@@ -47,7 +50,8 @@ class YahooWeather
 		try
 		{
 			$this->WOEID = (int) $WOEID;
-			$xml = @simplexml_load_file('http://weather.yahooapis.com/forecastrss?w='.$this->WOEID.'&u='.$unit);
+			$this->unit = strtoupper($unit);
+			$xml = @simplexml_load_file('http://weather.yahooapis.com/forecastrss?w='.$this->WOEID.'&u='.$this->unit);
 			if(!$xml)
 			{
 				throw new Exception('failed to load external entity');
@@ -130,6 +134,14 @@ class YahooWeather
 	public function getCity()
 	{
 		return $this->city;
+	}
+	
+	/**
+	 * Get unit
+	 */
+	public function getUnit()
+	{
+		return $this->unit;
 	}
 	
 	/**
